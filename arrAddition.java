@@ -1,0 +1,42 @@
+package arrays;
+
+public class arrAddition {
+    public static void main(String[] args) {
+        int first[]={2,3,4,5,6};
+        int second[]={4,5,2,3};
+        int n1=first.length;
+        int n2=second.length;
+        int n3=n1>n2?n1:n2;
+        int third[]=new int[n3];
+        int i =n1-1;
+        int j =n2-1;
+        int k =n3-1;
+        int carry = 0;
+        int sum = 0;
+        while(k>=0){
+            if(i>=0 && j<=0){
+                sum=first[i]+second[j]+carry;
+            }
+            else if(i>=0 && j<0){
+                sum=first[i]+carry;
+            }
+            else if(j>=0 && i<0){
+                sum =  second[j]+carry;
+            }
+            carry = sum/10;
+            sum=sum%10;
+            third[k]=sum;
+            i--;
+            j--;
+            k--;
+        }
+        if (carry != 0){
+            System.out.println(carry);
+        }
+        for(int e:third){
+            System.out.print(e);
+        }
+        System.out.println();
+    }
+    
+}
